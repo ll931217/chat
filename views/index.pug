@@ -1,0 +1,23 @@
+extends ../layouts/default.pug
+
+append styles
+  link(rel="stylesheet", href="/css/login.css")
+
+block content
+  .container
+    input(type="text", placeholder="Username", autocomplete="off", required, autofocus).username
+
+append scripts
+  script.
+    const input = document.querySelector('input')
+    if (sessionStorage.getItem('username'))
+      window.location = '/chat'
+    else {
+      input.addEventListener('keyup', function(e) {
+        if (e.keyCode === 13) {
+          sessionStorage.setItem('username', this.value)
+          window.location = '/chat'
+        }
+      })
+    }
+

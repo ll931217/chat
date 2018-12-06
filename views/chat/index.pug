@@ -1,0 +1,27 @@
+extends ../../layouts/default.pug
+
+append styles
+  link(rel="stylesheet", type="text/css", href="/css/chat.css")
+
+block content
+  .container
+    .chat
+      .chat-box
+        .chat-output
+        .chat-status
+          span.status
+      .chat-message
+        form.chat-form
+          input(type="text", placeholder="Type a message...").chat-input
+          button(type="submit").chat-send-button Send
+    .users
+      .hamburger-container
+        .hamburger
+          span
+          span
+      h3 Online Users
+      ul.users-list
+
+append scripts
+  script(src="/js/hamburger.js")
+  script(src="/js/chat.js")
